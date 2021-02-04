@@ -1,14 +1,27 @@
 // Global Variables==================================================================================
 
 // arrays and variables for holding data
-var wordOptions = ["jessica", "nikkole", "mike", "willy", "robert", "mark"];
+var wordOptions = [
+  "jessica",
+  "nikkole",
+  "mike",
+  "willy",
+  "robert",
+  "mark",
+  "sheila",
+  "vanessa",
+  "cindy",
+  "marcus",
+  "rita",
+  "morgan",
+];
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
-var blanksAndSuccesses = [];
+var blanksAndSuccesses = []; //j _ _ _ _
 var wrongLetters = [];
 
-// keeping score
+// Game counters
 var winCount = 0;
 var lossCount = 0;
 var guessesLeft = 9;
@@ -19,17 +32,17 @@ function startGame() {
   lettersInWord = selectedWord.split("");
   numBlanks = lettersInWord.length;
 
-  // reset
+  // Reset
   guessesLeft = 9;
   blanksAndSuccesses = [];
   wrongLetters = [];
 
-  // populate blanks and successes with number of blanks
+  // Populate blanks and successes with right number of blanks
   for (var i = 0; i < numBlanks; i++) {
     blanksAndSuccesses.push("_");
   }
 
-  // change html to reflect game round conditions
+  // Change html to reflect game round conditions
   document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(
     "  "
   );
@@ -37,6 +50,7 @@ function startGame() {
   document.getElementById("winCounter").innerHTML = winCount;
   document.getElementById("lossCounter").innerHTML = lossCount;
 
+  // Testing and debugging
   console.log(selectedWord);
   console.log(lettersInWord);
   console.log(numBlanks);
